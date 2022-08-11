@@ -1,0 +1,13 @@
+{
+  "lerna": "3.2.0",
+  "loglevel": "verbose",
+  "packages": [
+    "packages/**"
+  ],
+  "command": {
+    "bootstrap": {
+      "nohoist": true
+    }
+  },
+  "version": "independent"
+}

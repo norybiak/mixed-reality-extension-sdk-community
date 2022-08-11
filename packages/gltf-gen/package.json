@@ -1,0 +1,51 @@
+{
+  "name": "@microsoft/gltf-gen",
+  "version": "0.21.0",
+  "description": "Generate glTF buffers on the fly from vertex data",
+  "main": "built/index.js",
+  "types": "built/index.d.ts",
+  "author": "Microsoft Corporation",
+  "license": "MIT",
+  "keywords": [
+    "mixed reality",
+    "virtual reality",
+    "vr",
+    "sdk",
+    "altspacevr",
+    "gltf"
+  ],
+  "engines": {
+    "node": ">=10.13.0",
+    "npm": ">=6.4.1"
+  },
+  "bugs": {
+    "url": "https://github.com/Microsoft/mixed-reality-extension-sdk/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Microsoft/mixed-reality-extension-sdk.git"
+  },
+  "scripts": {
+    "update-schema": "gltf-typescript-generator src/gen/gltf.ts https://rawgit.com/KhronosGroup/glTF/master/specification/2.0/schema/glTF.schema.json",
+    "test": "npm run build && node built/tests/index.js",
+    "clean": "tsc --build --clean",
+    "build": "tsc --build && eslint --ext .ts src",
+    "build-docs": "typedoc --includeDeclarations --excludeExternals --excludeNotExported --excludeProtected --excludePrivate --hideGenerator --ignoreCompilerErrors --disableOutputCheck --mode file --name \"glTF Generator\" --readme none --out \"../../docs/gltf-gen\" ./src",
+    "prepublishOnly": "tsc --build"
+  },
+  "devDependencies": {
+    "@types/mime-types": "^2.1.0",
+    "@types/node": "^10.12.0",
+    "@typescript-eslint/eslint-plugin": "^2.6.1",
+    "@typescript-eslint/parser": "^2.6.1",
+    "eslint": "^6.6.0",
+    "gltf-typescript-generator": "^0.0.3",
+    "gltf-validator": "^2.0.0-dev.2.5",
+    "typedoc": "^0.16.8",
+    "typescript": "^3.7.2"
+  },
+  "dependencies": {
+    "@microsoft/mixed-reality-extension-common": "^0.21.0",
+    "mime-types": "~2.1.19"
+  }
+}
